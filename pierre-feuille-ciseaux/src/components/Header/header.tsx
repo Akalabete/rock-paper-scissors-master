@@ -1,8 +1,8 @@
 export default function Header() {
   return (
     <header className="flex justify-center items-center  w-full h-48 text-white">
-        <div className="flex flex-row justify-between items-center mt-8 w-4/5 border-4 rounded-lg border-blue-400 p-4 pt-6 pb-6 items-center">
-            <h1 className="flex leading-none flex-col text-2xl font-bold pt-2">
+        <div className="flex flex-row justify-between items-center mt-8 w-4/5 border-4 rounded-lg border-blue-400 p-3 items-center">
+            <h1 className="flex leading-none flex-col text-xl font-bold pt-2">
                 <span>ROCK</span>
                 <span>PAPER</span>
                 <span>SCISSORS</span>
