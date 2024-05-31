@@ -37,8 +37,9 @@ body {
 .bg-triangle {
     background-image: url('../../public/bg-triangle.svg');
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 100%;
     background-position: center;
+    width: 250px;
 }
 .border-yellow {
   box-shadow:
@@ -56,3 +57,7 @@ body {
   inset 0 4px 0 lightgrey,
   0 4px 0 0 rgb(154, 0, 0);
 }
+body {
+  min-width: 375px;
+}
+
