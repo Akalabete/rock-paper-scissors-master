@@ -50,18 +50,24 @@ function calculateVictory() {
 
 */
   export default function Home() {
-    const [playerState, setPlayerState] = useState("");
-    const [randomState, setRandomState] = useState("");
-  
+    const [playerState, setPlayerState] = useState<GameState>("");
+    const [randomState, setRandomState] = useState<GameState>("");
+    type GameState = "rock" | "paper" | "scissors" | "";
     
+    const components: Record<GameState, JSX.Element | null> = {
+      rock: <Rock onClick={() => {}} />,
+      paper: <Paper onClick={() => {}} />,
+      scissors: <Scissors onClick={() => {}} />,
+      "": null,
+    };
     useEffect(() => {
       if (playerState !== "") {
         const items = ["rock", "paper", "scissors"];
-        const randomItem = items[Math.floor(Math.random() * items.length)];
+        const randomItem = items[Math.floor(Math.random() * items.length)] as GameState; // Cast randomItem to GameState
         setRandomState(randomItem);
       }
     }, [playerState]);
-  
+    
     return (
       <div className="bg-radial-gradient">
         <Header score={score} />
@@ -76,8 +82,15 @@ function calculateVictory() {
         </main>
         ) : (
           <>
-            <div>Votre choix: {playerState}</div>
-            <div>Choix de l&nbsp;ordinateur: {randomState}</div>
+            <main className="flex min-h-screen flex-col items-center justify-between p-24">
+              <div className="flex relative w-72 h-80 ">
+                <div>
+                  <p> Votre choix: {playerState && components[playerState]}</p>
+                  
+                  </div>
+                <div>Choix de l&apos;ordinateur: {randomState && components[randomState]}</div>
+              </div>
+            </main>
           </>
         )}
       </div>
